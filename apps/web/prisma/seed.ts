@@ -1,4 +1,4 @@
-import { PrismaClient, Role } from "@prisma/client";
+import { PrismaClient, Role, MemberRole } from "@prisma/client";
 import bcrypt from "bcryptjs";
 
 const prisma = new PrismaClient();
@@ -19,7 +19,7 @@ async function main() {
 
   const hashedPassword = await bcrypt.hash("Admin123!", 12);
 
-  await prisma.user.create({
+  const admin = await prisma.user.create({
     data: {
       name: "Admin User",
       email: adminEmail,
@@ -31,7 +31,7 @@ async function main() {
 
   const userPassword = await bcrypt.hash("User1234!", 12);
 
-  await prisma.user.create({
+  const user = await prisma.user.create({
     data: {
       name: "Test User",
       email: userEmail,
@@ -41,9 +41,24 @@ async function main() {
     },
   });
 
+  const workspace = await prisma.workspace.create({
+    data: {
+      name: "Acme Corp",
+      slug: "acme-corp",
+    },
+  });
+
+  await prisma.member.createMany({
+    data: [
+      { userId: admin.id, workspaceId: workspace.id, role: MemberRole.OWNER },
+      { userId: user.id, workspaceId: workspace.id, role: MemberRole.MEMBER },
+    ],
+  });
+
   console.warn("Seed data created successfully");
   console.warn(`  Admin: ${adminEmail} / Admin123!`);
   console.warn(`  User:  ${userEmail} / User1234!`);
+  console.warn(`  Workspace: Acme Corp (acme-corp)`);
 }
 
 main()

@@ -5,6 +5,8 @@ import {
   Shield,
   Palette,
   Sliders,
+  Users,
+  Building2,
   type LucideIcon,
 } from "lucide-react";
 
@@ -32,10 +34,20 @@ export const settingsNav: NavItem[] = [
   { title: "Security", href: "/settings/security", icon: Shield },
 ];
 
+export const workspaceNav: NavItem[] = [
+  { title: "Workspace", href: "/settings/workspace", icon: Building2 },
+  { title: "Members", href: "/settings/workspace/members", icon: Users },
+  { title: "Invitations", href: "/settings/workspace/invitations", icon: Users },
+];
+
 export const sidebarNav: NavGroup[] = [
   {
     title: "Main",
     items: mainNav,
+  },
+  {
+    title: "Workspace",
+    items: workspaceNav,
   },
   {
     title: "Settings",

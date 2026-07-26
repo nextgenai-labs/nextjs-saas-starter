@@ -87,13 +87,34 @@ export async function registerAction(_prev: unknown, formData: FormData) {
   }
 
   const hashedPassword = await hashPassword(password);
+  const userId = randomBytes(16).toString("hex");
 
   await prisma.user.create({
     data: {
-      id: randomBytes(16).toString("hex"),
+      id: userId,
       name,
       email: email.toLowerCase(),
       password: hashedPassword,
+    },
+  });
+
+  const slug =
+    name
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-|-$/g, "")
+      .slice(0, 63) || `workspace-${randomBytes(4).toString("hex")}`;
+
+  await prisma.workspace.create({
+    data: {
+      name: `${name}'s Workspace`,
+      slug,
+      members: {
+        create: {
+          userId,
+          role: "OWNER",
+        },
+      },
     },
   });
 
