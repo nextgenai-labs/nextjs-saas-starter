@@ -12,9 +12,9 @@
 
 - **Trademark status:** Not registered (common descriptive name). Filed as a product name in marketplace listings, not a legal trademark.
 - **Tagline options:**
-  - *"Launch your SaaS. Skip the boilerplate."*
-  - *"The production-grade Next.js starter for serious SaaS builders."*
-  - *"Auth, teams, billing — done for you."*
+  - _"Launch your SaaS. Skip the boilerplate."_
+  - _"The production-grade Next.js starter for serious SaaS builders."_
+  - _"Auth, teams, billing — done for you."_
 - **URL:** `nextjs-saas-starter.com` (or similar — redirects to marketplace or product page)
 
 ### Name Rationale
@@ -41,20 +41,20 @@ We chose a descriptive, SEO-friendly name over a branded name (e.g., "LaunchKit"
 
 ### Color Palette
 
-| Role | Hex | Tailwind | Usage |
-|---|---|---|---|
-| **Primary** | `#2563eb` | blue-600 | Buttons, links, active states |
-| **Primary hover** | `#1d4ed8` | blue-700 | Button hover, link hover |
-| **Background** | `#ffffff` | white | Page backgrounds |
-| **Surface** | `#f8fafc` | slate-50 | Card backgrounds |
-| **Border** | `#e2e8f0` | slate-200 | Borders, dividers |
-| **Text primary** | `#0f172a` | slate-900 | Headings, body text |
-| **Text secondary** | `#64748b` | slate-500 | Subtle text |
-| **Success** | `#16a34a` | green-600 | Billing active, confirmed |
-| **Warning** | `#d97706` | amber-600 | Trial ending, warnings |
-| **Error** | `#dc2626` | red-600 | Errors, payment failures |
-| **Dark surface** | `#1e293b` | slate-800 | Dark mode card backgrounds |
-| **Dark bg** | `#0f172a` | slate-900 | Dark mode page backgrounds |
+| Role               | Hex       | Tailwind  | Usage                         |
+| ------------------ | --------- | --------- | ----------------------------- |
+| **Primary**        | `#2563eb` | blue-600  | Buttons, links, active states |
+| **Primary hover**  | `#1d4ed8` | blue-700  | Button hover, link hover      |
+| **Background**     | `#ffffff` | white     | Page backgrounds              |
+| **Surface**        | `#f8fafc` | slate-50  | Card backgrounds              |
+| **Border**         | `#e2e8f0` | slate-200 | Borders, dividers             |
+| **Text primary**   | `#0f172a` | slate-900 | Headings, body text           |
+| **Text secondary** | `#64748b` | slate-500 | Subtle text                   |
+| **Success**        | `#16a34a` | green-600 | Billing active, confirmed     |
+| **Warning**        | `#d97706` | amber-600 | Trial ending, warnings        |
+| **Error**          | `#dc2626` | red-600   | Errors, payment failures      |
+| **Dark surface**   | `#1e293b` | slate-800 | Dark mode card backgrounds    |
+| **Dark bg**        | `#0f172a` | slate-900 | Dark mode page backgrounds    |
 
 ### Typography
 
@@ -82,11 +82,11 @@ We chose a descriptive, SEO-friendly name over a branded name (e.g., "LaunchKit"
 
 ### Voice Examples
 
-| Situation | Good | Bad |
-|---|---|---|
+| Situation           | Good                                                                                                                        | Bad                                                                          |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
 | Feature description | "Pre-built Stripe webhook handler with signature verification and idempotency — the hardest part of billing, done for you." | "Our revolutionary Stripe integration will transform your billing workflow!" |
-| Problem statement | "Writing auth, teams, and billing from scratch takes 3-6 weeks. This starter gives you back that time." | "Are you tired of boilerplate? We were too. That's why we built this." |
-| Call to action | "Buy the starter. Get back to building your product." | "Don't miss out on this incredible opportunity! Buy now!" |
+| Problem statement   | "Writing auth, teams, and billing from scratch takes 3-6 weeks. This starter gives you back that time."                     | "Are you tired of boilerplate? We were too. That's why we built this."       |
+| Call to action      | "Buy the starter. Get back to building your product."                                                                       | "Don't miss out on this incredible opportunity! Buy now!"                    |
 
 ### Do Not
 
@@ -128,16 +128,16 @@ We chose a descriptive, SEO-friendly name over a branded name (e.g., "LaunchKit"
 
 ## 5. Assets Checklist
 
-| Asset | Format | Status |
-|---|---|---|
-| Logo (light bg) | SVG, PNG | To create |
-| Logo (dark bg) | SVG, PNG | To create |
-| Favicon | ICO, SVG | To create |
-| OG image (1200×630px) | PNG | To create |
-| Social media banner (1500×500px) | PNG | To create |
-| Codester thumbnail (590×300px) | JPG | To create |
+| Asset                             | Format     | Status    |
+| --------------------------------- | ---------- | --------- |
+| Logo (light bg)                   | SVG, PNG   | To create |
+| Logo (dark bg)                    | SVG, PNG   | To create |
+| Favicon                           | ICO, SVG   | To create |
+| OG image (1200×630px)             | PNG        | To create |
+| Social media banner (1500×500px)  | PNG        | To create |
+| Codester thumbnail (590×300px)    | JPG        | To create |
 | Screenshot template (1920×1080px) | PSD/Sketch | To create |
-| Product mockup (browser frame) | PSD/Sketch | To create |
+| Product mockup (browser frame)    | PSD/Sketch | To create |
 
 ---
 
@@ -150,6 +150,7 @@ We chose a descriptive, SEO-friendly name over a branded name (e.g., "LaunchKit"
 ### Attribution in Buyer Projects
 
 Buyers are NOT required to:
+
 - Keep a "Powered by" badge in their application
 - Link back to our website
 - Include our branding in any way

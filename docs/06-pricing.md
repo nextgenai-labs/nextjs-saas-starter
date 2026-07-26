@@ -8,11 +8,11 @@
 
 ## 1. Pricing Tiers
 
-| Tier | Price | License Type | Best For |
-|---|---|---|---|
-| **Standard** | $59 | Single-user, unlimited projects | Indie founders, freelancers |
-| **Extended** | $149 | Multi-user (up to 5 devs), unlimited projects | Small agencies, startup teams |
-| **Enterprise** | $499 | Unlimited users, priority support, white-label rights | Agencies, product teams, commercial resellers |
+| Tier           | Price | License Type                                          | Best For                                      |
+| -------------- | ----- | ----------------------------------------------------- | --------------------------------------------- |
+| **Standard**   | $59   | Single-user, unlimited projects                       | Indie founders, freelancers                   |
+| **Extended**   | $149  | Multi-user (up to 5 devs), unlimited projects         | Small agencies, startup teams                 |
+| **Enterprise** | $499  | Unlimited users, priority support, white-label rights | Agencies, product teams, commercial resellers |
 
 ### One-time payment, not a subscription.
 
@@ -68,13 +68,13 @@ All tiers are one-time purchases. Buyers receive 12 months of updates included. 
 
 ## 3. Competitor Pricing
 
-| Product | Standard | Extended | Notes |
-|---|---|---|---|
-| **ShipFast** | $69 | $169 | Cheaper standard tier, no org model |
-| **Nextify** | $49 | — | Single tier, fewer features |
-| **DivJoy** | $149 | $299 | Older tech stack, slower updates |
-| **SaaS-Boilerplate (OSS)** | Free | — | No Stripe, no marketplace packaging |
-| **Our Product** | **$59** | **$149** | **Best value at mid-tier** |
+| Product                    | Standard | Extended | Notes                               |
+| -------------------------- | -------- | -------- | ----------------------------------- |
+| **ShipFast**               | $69      | $169     | Cheaper standard tier, no org model |
+| **Nextify**                | $49      | —        | Single tier, fewer features         |
+| **DivJoy**                 | $149     | $299     | Older tech stack, slower updates    |
+| **SaaS-Boilerplate (OSS)** | Free     | —        | No Stripe, no marketplace packaging |
+| **Our Product**            | **$59**  | **$149** | **Best value at mid-tier**          |
 
 ### Positioning Rationale
 
@@ -86,12 +86,12 @@ All tiers are one-time purchases. Buyers receive 12 months of updates included. 
 
 ## 4. Discounts & Promotions
 
-| Event | Discount | Duration |
-|---|---|---|
-| **Launch week** | 20% off all tiers | First 7 days |
-| **Black Friday / Cyber Monday** | 30% off | Annual |
-| **Bundle (starter + future product)** | 15% off both | Ongoing if applicable |
-| **Referral program** | 10% of each referred sale credited | Ongoing |
+| Event                                 | Discount                           | Duration              |
+| ------------------------------------- | ---------------------------------- | --------------------- |
+| **Launch week**                       | 20% off all tiers                  | First 7 days          |
+| **Black Friday / Cyber Monday**       | 30% off                            | Annual                |
+| **Bundle (starter + future product)** | 15% off both                       | Ongoing if applicable |
+| **Referral program**                  | 10% of each referred sale credited | Ongoing               |
 
 No student discounts, no non-profit discounts, no volume discounts beyond the Enterprise tier. The price is intentionally low enough that discounts would devalue the product.
 
@@ -114,11 +114,11 @@ No student discounts, no non-profit discounts, no volume discounts beyond the En
 
 ## 6. Update Extension Pricing
 
-| Tier | Extension Price | Duration |
-|---|---|---|
-| Standard | $29 | 12 months of updates |
-| Extended | $74 | 12 months of updates |
-| Enterprise | $249 | 12 months of updates + support |
+| Tier       | Extension Price | Duration                       |
+| ---------- | --------------- | ------------------------------ |
+| Standard   | $29             | 12 months of updates           |
+| Extended   | $74             | 12 months of updates           |
+| Enterprise | $249            | 12 months of updates + support |
 
 Buyers are notified via email 30 days before their update entitlement expires. They can renew at any time — the 12-month clock starts from the renewal date, not the original purchase date.
 
@@ -126,14 +126,14 @@ Buyers are notified via email 30 days before their update entitlement expires. T
 
 ## 7. Revenue Projection
 
-| Metric | Year 1 | Year 2 | Year 3 |
-|---|---|---|---|
-| Units sold (Standard) | 800 | 1,200 | 1,500 |
-| Units sold (Extended) | 200 | 350 | 500 |
-| Units sold (Enterprise) | 50 | 100 | 150 |
-| Update extensions | — | 300 | 600 |
-| Gross revenue | $83,500 | $188,500 | $271,500 |
-| Marketplace fees (avg 25%) | -$20,875 | -$47,125 | -$67,875 |
-| Net revenue | **$62,625** | **$141,375** | **$203,625** |
+| Metric                     | Year 1      | Year 2       | Year 3       |
+| -------------------------- | ----------- | ------------ | ------------ |
+| Units sold (Standard)      | 800         | 1,200        | 1,500        |
+| Units sold (Extended)      | 200         | 350          | 500          |
+| Units sold (Enterprise)    | 50          | 100          | 150          |
+| Update extensions          | —           | 300          | 600          |
+| Gross revenue              | $83,500     | $188,500     | $271,500     |
+| Marketplace fees (avg 25%) | -$20,875    | -$47,125     | -$67,875     |
+| Net revenue                | **$62,625** | **$141,375** | **$203,625** |
 
-*Projections assume: 60% of sales via marketplace, 40% direct. Year 1 ramp-up (launch mid-quarter). Extension attach rate of 20% in Year 2, growing to 30% in Year 3.*
+_Projections assume: 60% of sales via marketplace, 40% direct. Year 1 ramp-up (launch mid-quarter). Extension attach rate of 20% in Year 2, growing to 30% in Year 3._

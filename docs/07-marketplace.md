@@ -8,13 +8,13 @@
 
 ## 1. Target Marketplaces
 
-| Marketplace | Revenue Share | Audience Fit | Priority |
-|---|---|---|---|
-| **Codester** | 15-25% | Developers, indie founders, small agencies | **Primary** — largest code marketplace, strong SaaS niche |
-| **UIdeck** | 20-25% | Designers, frontend devs | Secondary — smaller audience, lower conversion |
-| **Gumroad** | 3-5% + payment fees | Indie developers, direct-to-consumer | Secondary — lower discoverability but higher margin |
-| **GitHub Marketplace** | N/A (not applicable for source code products) | N/A | Not targeted — no commercial code support |
-| **AppSumo** | 70%+ (lifetime deals) | Deal-seekers, not our target | Avoid — destroys perceived value |
+| Marketplace            | Revenue Share                                 | Audience Fit                               | Priority                                                  |
+| ---------------------- | --------------------------------------------- | ------------------------------------------ | --------------------------------------------------------- |
+| **Codester**           | 15-25%                                        | Developers, indie founders, small agencies | **Primary** — largest code marketplace, strong SaaS niche |
+| **UIdeck**             | 20-25%                                        | Designers, frontend devs                   | Secondary — smaller audience, lower conversion            |
+| **Gumroad**            | 3-5% + payment fees                           | Indie developers, direct-to-consumer       | Secondary — lower discoverability but higher margin       |
+| **GitHub Marketplace** | N/A (not applicable for source code products) | N/A                                        | Not targeted — no commercial code support                 |
+| **AppSumo**            | 70%+ (lifetime deals)                         | Deal-seekers, not our target               | Avoid — destroys perceived value                          |
 
 ### Primary Strategy: Codester-First
 
@@ -31,17 +31,17 @@ Codester is our primary distribution channel because:
 
 ### Codester-Specific Requirements
 
-| Requirement | Details |
-|---|---|
-| **Item name** | Next.js SaaS Starter — Auth, Teams, Billing, and Admin |
-| **Item description** | 500-1500 words, keyword-optimized |
-| **Price** | $59 (Standard) / $149 (Extended) / $499 (Enterprise) |
-| **Screenshots** | Minimum 6, maximum 12. 1920×1080px, JPG format. |
-| **Preview URL** | Live demo site with seed data |
-| **Documentation** | PDF or linked web docs |
-| **Support policy** | 12 months included, via item comments + email |
-| **License** | Standard / Extended / Enterprise |
-| **Tags** | nextjs, saas, starter, boilerplate, react, typescript, stripe, auth, teams, billing |
+| Requirement          | Details                                                                             |
+| -------------------- | ----------------------------------------------------------------------------------- |
+| **Item name**        | Next.js SaaS Starter — Auth, Teams, Billing, and Admin                              |
+| **Item description** | 500-1500 words, keyword-optimized                                                   |
+| **Price**            | $59 (Standard) / $149 (Extended) / $499 (Enterprise)                                |
+| **Screenshots**      | Minimum 6, maximum 12. 1920×1080px, JPG format.                                     |
+| **Preview URL**      | Live demo site with seed data                                                       |
+| **Documentation**    | PDF or linked web docs                                                              |
+| **Support policy**   | 12 months included, via item comments + email                                       |
+| **License**          | Standard / Extended / Enterprise                                                    |
+| **Tags**             | nextjs, saas, starter, boilerplate, react, typescript, stripe, auth, teams, billing |
 
 ### Prohibited Content
 
@@ -56,16 +56,16 @@ Codester is our primary distribution channel because:
 
 ### Screenshot Checklist
 
-| # | Screen | Content |
-|---|---|---|
-| 1 | Landing page | Hero section with headline, feature grid, pricing |
-| 2 | Login page | Email + Google/GitHub OAuth buttons |
-| 3 | Dashboard | Analytics view with charts, MRR, active users |
-| 4 | Team management | Member list with roles, invite button |
-| 5 | Billing | Plan display, subscription status, upgrade button |
-| 6 | Settings | Profile editing, theme toggle |
-| 7 | Mobile dashboard | Responsive view of dashboard |
-| 8 | Admin panel (P1) | User list, org management (post-launch) |
+| #   | Screen           | Content                                           |
+| --- | ---------------- | ------------------------------------------------- |
+| 1   | Landing page     | Hero section with headline, feature grid, pricing |
+| 2   | Login page       | Email + Google/GitHub OAuth buttons               |
+| 3   | Dashboard        | Analytics view with charts, MRR, active users     |
+| 4   | Team management  | Member list with roles, invite button             |
+| 5   | Billing          | Plan display, subscription status, upgrade button |
+| 6   | Settings         | Profile editing, theme toggle                     |
+| 7   | Mobile dashboard | Responsive view of dashboard                      |
+| 8   | Admin panel (P1) | User list, org management (post-launch)           |
 
 ### Screenshot Guidelines
 
@@ -155,12 +155,12 @@ Reviews are the #1 conversion factor on Codester. We must actively manage them.
 
 ### Review Volume Target
 
-| Month | Target Reviews |
-|---|---|
-| Month 1 (launch) | 10-15 |
-| Month 2-3 | 5-10/month |
-| Month 4-6 | 3-5/month |
-| Month 7+ | 1-3/month |
+| Month            | Target Reviews |
+| ---------------- | -------------- |
+| Month 1 (launch) | 10-15          |
+| Month 2-3        | 5-10/month     |
+| Month 4-6        | 3-5/month      |
+| Month 7+         | 1-3/month      |
 
 ---
 
@@ -187,11 +187,11 @@ Marketplace customers expect active maintenance. We follow this process for each
 
 ## 8. Competitor Monitoring
 
-| Competitor | What to Watch |
-|---|---|
-| **ShipFast** | Pricing changes, new features, marketing campaigns |
-| **DivJoy** | Next.js 15 adoption, pricing changes |
-| **Nextify** | New feature releases, community growth |
+| Competitor       | What to Watch                                                |
+| ---------------- | ------------------------------------------------------------ |
+| **ShipFast**     | Pricing changes, new features, marketing campaigns           |
+| **DivJoy**       | Next.js 15 adoption, pricing changes                         |
+| **Nextify**      | New feature releases, community growth                       |
 | **New entrants** | Monthly sweep of Codester for new "saas" + "nextjs" listings |
 
 **Response time to competitive moves:** 2 weeks for pricing changes, 1 month for major feature gaps. We do not compete on price — we compete on quality and team model differentiation.

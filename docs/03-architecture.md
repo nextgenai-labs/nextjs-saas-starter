@@ -239,20 +239,20 @@ src/
 
 ## 8. Security Architecture
 
-| Layer | Mechanism |
-|---|---|
-| **Transport** | HTTPS enforced; HSTS headers |
-| **Authentication** | NextAuth with database sessions; rate-limited login; account lockout after N failures |
-| **Authorization** | RBAC enforced at API route level via `authorize(role)` helper; UI-level via `can()` component |
-| **Input validation** | Zod schemas on all API inputs; type coercion rejected |
-| **CSRF** | Next.js built-in CSRF protection via server actions; double-submit cookie pattern for API routes |
-| **XSS** | React JSX escaping; Content-Security-Policy headers; no `dangerouslySetInnerHTML` |
-| **SQL injection** | Parameterized queries via Drizzle; no raw string interpolation in SQL |
-| **Rate limiting** | Upstash Ratelimit or in-memory (dev); configurable per-route thresholds |
-| **Webhook security** | Stripe signature verification; payload size limits; IP allowlist optional |
-| **Session management** | HTTP-only cookies; configurable TTL; forced re-auth on sensitive actions |
-| **Secrets** | All secrets via environment variables; `.env.example` with no real values; documented sources |
-| **Dependencies** | Renovate/Dependabot for automated updates; weekly review cycle; Snyk or similar for vulnerability scanning |
+| Layer                  | Mechanism                                                                                                  |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------- |
+| **Transport**          | HTTPS enforced; HSTS headers                                                                               |
+| **Authentication**     | NextAuth with database sessions; rate-limited login; account lockout after N failures                      |
+| **Authorization**      | RBAC enforced at API route level via `authorize(role)` helper; UI-level via `can()` component              |
+| **Input validation**   | Zod schemas on all API inputs; type coercion rejected                                                      |
+| **CSRF**               | Next.js built-in CSRF protection via server actions; double-submit cookie pattern for API routes           |
+| **XSS**                | React JSX escaping; Content-Security-Policy headers; no `dangerouslySetInnerHTML`                          |
+| **SQL injection**      | Parameterized queries via Drizzle; no raw string interpolation in SQL                                      |
+| **Rate limiting**      | Upstash Ratelimit or in-memory (dev); configurable per-route thresholds                                    |
+| **Webhook security**   | Stripe signature verification; payload size limits; IP allowlist optional                                  |
+| **Session management** | HTTP-only cookies; configurable TTL; forced re-auth on sensitive actions                                   |
+| **Secrets**            | All secrets via environment variables; `.env.example` with no real values; documented sources              |
+| **Dependencies**       | Renovate/Dependabot for automated updates; weekly review cycle; Snyk or similar for vulnerability scanning |
 
 ## 9. Performance Considerations
 
