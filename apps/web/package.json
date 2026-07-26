@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@nextjs-saas/types": "workspace:*",
+    "@nextjs-saas/ui": "workspace:*",
     "@nextjs-saas/utils": "workspace:*",
     "next": "^15.0.0",
     "react": "^19.0.0",
@@ -18,9 +19,12 @@
   },
   "devDependencies": {
     "@nextjs-saas/config": "workspace:*",
+    "@tailwindcss/postcss": "^4.0.0",
     "@types/node": "^20.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
+    "postcss": "^8.5.0",
+    "tailwindcss": "^4.0.0",
     "typescript": "^5.5.0"
   }
 }
