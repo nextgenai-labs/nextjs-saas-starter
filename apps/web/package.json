@@ -21,6 +21,7 @@
     "@nextjs-saas/utils": "workspace:*",
     "@prisma/client": "^6.6.0",
     "bcryptjs": "^2.4.3",
+    "lucide-react": "^0.460.0",
     "next": "^15.0.0",
     "next-auth": "^5.0.0-beta.25",
     "prisma": "^6.6.0",
