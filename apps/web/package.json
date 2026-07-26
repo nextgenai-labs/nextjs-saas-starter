@@ -19,7 +19,7 @@
     "@nextjs-saas/ui": "workspace:*",
     "@nextjs-saas/utils": "workspace:*",
     "bcryptjs": "^2.4.3",
-    "drizzle-orm": "^0.38.0",
+    "drizzle-orm": "^0.45.2",
     "next": "^15.0.0",
     "next-auth": "^5.0.0-beta.25",
     "postgres": "^3.4.0",
