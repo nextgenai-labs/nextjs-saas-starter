@@ -1,6 +1,7 @@
 "use server";
 
 import { redirect } from "next/navigation";
+import bcrypt from "bcryptjs";
 import { hashPassword, validatePasswordStrength } from "./password";
 import {
   loginSchema,
@@ -10,9 +11,7 @@ import {
 } from "./validation";
 import { checkRateLimit, recordAttempt, resetAttempts } from "./rate-limit";
 import { signIn } from "./auth";
-import { getDb } from "@/lib/db";
-import { users, verificationTokens } from "@/lib/db/schema";
-import { eq } from "drizzle-orm";
+import { prisma } from "@/lib/db";
 import { sendVerificationEmail, sendPasswordResetEmail } from "./email";
 import { randomBytes } from "node:crypto";
 
@@ -79,9 +78,8 @@ export async function registerAction(_prev: unknown, formData: FormData) {
     return { error: strength.errors[0] ?? "Password does not meet requirements", success: false };
   }
 
-  const db = getDb();
-  const existing = await db.query.users.findFirst({
-    where: (users, { eq }) => eq(users.email, email.toLowerCase()),
+  const existing = await prisma.user.findUnique({
+    where: { email: email.toLowerCase() },
   });
 
   if (existing) {
@@ -90,19 +88,23 @@ export async function registerAction(_prev: unknown, formData: FormData) {
 
   const hashedPassword = await hashPassword(password);
 
-  await db.insert(users).values({
-    id: randomBytes(16).toString("hex"),
-    name,
-    email: email.toLowerCase(),
-    password: hashedPassword,
+  await prisma.user.create({
+    data: {
+      id: randomBytes(16).toString("hex"),
+      name,
+      email: email.toLowerCase(),
+      password: hashedPassword,
+    },
   });
 
   const verifyToken = randomBytes(32).toString("hex");
 
-  await db.insert(verificationTokens).values({
-    identifier: email.toLowerCase(),
-    token: verifyToken,
-    expires: new Date(Date.now() + 24 * 60 * 60 * 1000),
+  await prisma.verificationToken.create({
+    data: {
+      identifier: email.toLowerCase(),
+      token: verifyToken,
+      expires: new Date(Date.now() + 24 * 60 * 60 * 1000),
+    },
   });
 
   await sendVerificationEmail(email.toLowerCase(), verifyToken);
@@ -122,20 +124,23 @@ export async function forgotPasswordAction(_prev: unknown, formData: FormData) {
 
   const email = parsed.data.email.toLowerCase();
 
-  const db = getDb();
-  const user = await db.query.users.findFirst({
-    where: (users, { eq }) => eq(users.email, email),
+  const user = await prisma.user.findUnique({
+    where: { email },
   });
 
   if (user) {
     const token = randomBytes(32).toString("hex");
 
-    await db.delete(verificationTokens).where(eq(verificationTokens.identifier, email));
+    await prisma.verificationToken.deleteMany({
+      where: { identifier: email },
+    });
 
-    await db.insert(verificationTokens).values({
-      identifier: email,
-      token,
-      expires: new Date(Date.now() + 60 * 60 * 1000),
+    await prisma.verificationToken.create({
+      data: {
+        identifier: email,
+        token,
+        expires: new Date(Date.now() + 60 * 60 * 1000),
+      },
     });
 
     await sendPasswordResetEmail(email, token);
@@ -165,23 +170,24 @@ export async function resetPasswordAction(_prev: unknown, formData: FormData) {
     return { error: strength.errors[0] ?? "Password does not meet requirements", success: false };
   }
 
-  const db = getDb();
-  const storedToken = await db.query.verificationTokens.findFirst({
-    where: (vt, { eq }) => eq(vt.token, token),
+  const storedToken = await prisma.verificationToken.findFirst({
+    where: { token },
   });
 
   if (!storedToken || storedToken.expires < new Date()) {
     return { error: "Invalid or expired reset token", success: false };
   }
 
-  const hashedPassword = await hashPassword(password);
+  const hashedPassword = await bcrypt.hash(password, 12);
 
-  await db
-    .update(users)
-    .set({ password: hashedPassword })
-    .where(eq(users.email, storedToken.identifier));
+  await prisma.user.update({
+    where: { email: storedToken.identifier },
+    data: { password: hashedPassword },
+  });
 
-  await db.delete(verificationTokens).where(eq(verificationTokens.token, token));
+  await prisma.verificationToken.delete({
+    where: { id: storedToken.id },
+  });
 
   redirect("/login?reseted=success");
 }
@@ -195,13 +201,16 @@ export async function resendVerificationAction(_prev: unknown, formData: FormDat
 
   const token = randomBytes(32).toString("hex");
 
-  const db = getDb();
-  await db.delete(verificationTokens).where(eq(verificationTokens.identifier, email.toLowerCase()));
+  await prisma.verificationToken.deleteMany({
+    where: { identifier: email.toLowerCase() },
+  });
 
-  await db.insert(verificationTokens).values({
-    identifier: email.toLowerCase(),
-    token,
-    expires: new Date(Date.now() + 24 * 60 * 60 * 1000),
+  await prisma.verificationToken.create({
+    data: {
+      identifier: email.toLowerCase(),
+      token,
+      expires: new Date(Date.now() + 24 * 60 * 60 * 1000),
+    },
   });
 
   await sendVerificationEmail(email.toLowerCase(), token);

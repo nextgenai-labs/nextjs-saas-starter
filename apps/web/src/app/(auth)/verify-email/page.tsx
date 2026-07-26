@@ -1,6 +1,4 @@
-import { eq } from "drizzle-orm";
-import { getDb } from "@/lib/db";
-import { users, verificationTokens } from "@/lib/db/schema";
+import { prisma } from "@/lib/db";
 import { VerifyEmailContent } from "./content";
 
 type VerifyEmailPageProps = {
@@ -15,20 +13,22 @@ export default async function VerifyEmailPage({ searchParams }: VerifyEmailPageP
     return <VerifyEmailContent status="missing-token" email="" />;
   }
 
-  const storedToken = await getDb().query.verificationTokens.findFirst({
-    where: (vt, { eq }) => eq(vt.token, token),
+  const storedToken = await prisma.verificationToken.findFirst({
+    where: { token },
   });
 
   if (!storedToken || storedToken.expires < new Date()) {
     return <VerifyEmailContent status="invalid-token" email="" />;
   }
 
-  await getDb()
-    .update(users)
-    .set({ emailVerified: new Date() })
-    .where(eq(users.email, storedToken.identifier));
+  await prisma.user.update({
+    where: { email: storedToken.identifier },
+    data: { emailVerified: new Date() },
+  });
 
-  await getDb().delete(verificationTokens).where(eq(verificationTokens.token, token));
+  await prisma.verificationToken.delete({
+    where: { id: storedToken.id },
+  });
 
   return <VerifyEmailContent status="verified" email={storedToken.identifier} />;
 }
