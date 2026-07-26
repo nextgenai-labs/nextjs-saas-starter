@@ -1,0 +1,11 @@
+.next
+.turbo
+dist
+out
+node_modules
+coverage
+.pnpm-store
+.git
+*.lock
+*.svg
+*.tsbuildinfo

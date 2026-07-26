@@ -6,96 +6,122 @@ Build and launch your subscription SaaS in days, not months. This starter kit el
 
 ---
 
-## What You Get
+## Current Status: Project Foundation
 
-- **Authentication** — Email/password, Google, GitHub. Session management, email verification, password reset. Built with NextAuth v5.
-- **Multi-Tenant Teams** — Organizations, workspace switching, role-based access control (Owner, Admin, Member, Viewer), team invites.
-- **Stripe Billing** — Checkout, Customer Portal, webhooks with signature verification and idempotency. Plans, upgrades, downgrades, cancellations, proration.
-- **Dashboard & Settings** — Analytics view, user profile, org settings, billing management. Responsive design (mobile, tablet, desktop).
-- **Admin Panel** (v1.1) — Platform-wide user and organization management.
-- **Dark Mode** (v1.1) — Light/dark/system theme toggle.
+This repository is under active development. The project foundation is in place:
+
+- [x] pnpm workspaces monorepo
+- [x] Turborepo build system
+- [x] TypeScript strict mode (shared tsconfigs)
+- [x] ESLint 9 flat config with TypeScript, React, and Next.js rules
+- [x] Prettier with Tailwind CSS plugin
+- [x] Husky pre-commit hooks with lint-staged
+- [x] Commitlint (conventional commits)
+- [x] Changesets for versioning
+- [x] EditorConfig
+- [x] GitHub Actions CI (lint, typecheck, format, build)
+- [x] Folder structure scaffolded
+
+## Project Structure
+
+```
+nextjs-saas-starter/
+├── apps/
+│   └── web/                    # Next.js application (in progress)
+├── packages/
+│   ├── config/                 # Shared configurations
+│   │   ├── tsconfig/           # TypeScript config presets
+│   │   └── package.json
+│   ├── types/                  # Shared TypeScript types
+│   ├── ui/                     # Shared UI components (placeholder)
+│   └── utils/                  # Shared utilities (placeholder)
+├── docs/                       # Product and planning documentation
+├── scripts/                    # Build and utility scripts
+├── .github/workflows/          # CI pipeline
+├── .husky/                     # Git hooks
+├── .changeset/                 # Version management
+└── .editorconfig
+```
 
 ## Tech Stack
 
-| Layer | Choice |
-|---|---|
-| Framework | Next.js 15 (App Router) |
-| Language | TypeScript (strict mode) |
-| Database | PostgreSQL |
-| ORM | Drizzle ORM |
-| Auth | NextAuth v5 (Auth.js) |
-| Payments | Stripe |
-| Email | Resend |
-| UI | Tailwind CSS 4 + shadcn/ui |
-| Testing | Vitest + Playwright |
-| Package manager | pnpm |
+| Layer           | Choice                     |
+| --------------- | -------------------------- |
+| Framework       | Next.js 15 (App Router)    |
+| Language        | TypeScript (strict mode)   |
+| Database        | PostgreSQL                 |
+| ORM             | Drizzle ORM                |
+| Auth            | NextAuth v5 (Auth.js)      |
+| Payments        | Stripe                     |
+| Email           | Resend                     |
+| UI              | Tailwind CSS 4 + shadcn/ui |
+| Testing         | Vitest + Playwright        |
+| Package manager | pnpm 9                     |
+| Build system    | Turborepo 2                |
 
 ## Quick Start
 
 ```bash
 git clone <your-repo-url>
 cd nextjs-saas-starter
-cp .env.example .env.local
 pnpm install
-pnpm run db:push
-pnpm run seed
-pnpm run dev
+pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) and log in with the seeded admin account (credentials in `.env.example`).
+## Scripts
 
-## Screenshots
-
-| Dashboard | Billing | Team Management |
-|---|---|---|
-| *(screenshot)* | *(screenshot)* | *(screenshot)* |
+| Command             | Description                         |
+| ------------------- | ----------------------------------- |
+| `pnpm dev`          | Start development server (all apps) |
+| `pnpm build`        | Build all apps and packages         |
+| `pnpm lint`         | Run ESLint across the project       |
+| `pnpm format`       | Format all files with Prettier      |
+| `pnpm format:check` | Check formatting without writing    |
+| `pnpm typecheck`    | Run TypeScript type checking        |
+| `pnpm clean`        | Clean all build artifacts           |
+| `pnpm test`         | Run tests                           |
 
 ## Documentation
 
-| Document | Description |
-|---|---|
-| [Product Overview](docs/01-product.md) | Vision, target customers, competitive analysis |
-| [Feature Catalog](docs/02-features.md) | Complete feature list with priorities |
-| [Architecture](docs/03-architecture.md) | System design, data flow, ADRs |
-| [Tech Stack](docs/04-tech-stack.md) | Technology choices and rationale |
-| [Roadmap](docs/05-roadmap.md) | Release plan and future features |
-| [Setup Guide](docs/06-setup.md) | From clone to production deployment |
-| [Deployment Guide](docs/07-deployment.md) | Vercel and Docker deployment |
+| Document                                | Description                                    |
+| --------------------------------------- | ---------------------------------------------- |
+| [Product Overview](docs/01-product.md)  | Vision, target customers, competitive analysis |
+| [Feature Catalog](docs/02-features.md)  | Complete feature list with priorities          |
+| [Architecture](docs/03-architecture.md) | System design, data flow, ADRs                 |
+| [Tech Stack](docs/04-tech-stack.md)     | Technology choices and rationale               |
+| [Roadmap](docs/05-roadmap.md)           | Release plan and future features               |
 
-*Full documentation is included with the purchase.*
+## Committing
 
-## Who Is This For?
+This project uses conventional commits. Commit messages must follow the format:
 
-- **Indie founders** building a paid SaaS product solo
-- **Small agencies** building client SaaS on a reliable foundation
-- **Full-stack developers** who want production patterns without the boilerplate
-- **Startup CTOs** who need to ship an MVP fast
+```
+type(scope): description
+
+feat:     new feature
+fix:      bug fix
+docs:     documentation
+style:    formatting, code style
+refactor: code change that neither fixes nor adds
+perf:     performance improvement
+test:     adding or fixing tests
+build:    build system or dependencies
+ci:       CI configuration
+chore:    maintenance tasks
+```
 
 ## License
 
 This is a commercial product, not open-source software. Licenses are available at three tiers:
 
-| License | Price | Best For |
-|---|---|---|
-| Standard | $59 | Single developer, unlimited projects |
-| Extended | $149 | Up to 5 developers, unlimited projects |
-| Enterprise | $499 | Unlimited developers, white-label rights |
+| License    | Price | Best For                                 |
+| ---------- | ----- | ---------------------------------------- |
+| Standard   | $59   | Single developer, unlimited projects     |
+| Extended   | $149  | Up to 5 developers, unlimited projects   |
+| Enterprise | $499  | Unlimited developers, white-label rights |
 
-All purchases include 12 months of updates and support.
-
-**[Purchase on Codester →]**(https://codester.com)
-
-## Support
-
-- Documentation included with purchase
-- GitHub Issues for bug reports and feature requests
-- Email support for Enterprise license holders
-- Response time: within 48 hours (business days)
-
-## Changelog
-
-See [CHANGELOG.md](docs/10-changelog.md) for the full version history.
+All purchases include 12 months of updates and support. See [docs/06-pricing.md](docs/06-pricing.md) for details.
 
 ---
 
-*Not affiliated with Vercel Inc. or the Next.js project. Built with ❤️ by NextGenAI Labs.*
+_Not affiliated with Vercel Inc. or the Next.js project. Built by NextGenAI Labs._
