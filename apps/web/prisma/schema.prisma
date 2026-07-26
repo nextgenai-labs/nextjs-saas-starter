@@ -13,6 +13,12 @@ enum Role {
   MEMBER
 }
 
+enum MemberRole {
+  OWNER
+  ADMIN
+  MEMBER
+}
+
 enum AuditAction {
   USER_CREATED
   USER_DELETED
@@ -30,6 +36,13 @@ enum AuditAction {
   PASSWORD_RESET_COMPLETED
 }
 
+enum InvitationStatus {
+  PENDING
+  ACCEPTED
+  EXPIRED
+  CANCELLED
+}
+
 model User {
   id            String    @id @default(cuid())
   name          String?
@@ -42,13 +55,71 @@ model User {
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
 
-  accounts  Account[]
-  sessions  Session[]
-  auditLogs AuditLog[]
+  timezone String @default("UTC")
+  locale   String @default("en")
+
+  accounts        Account[]
+  sessions        Session[]
+  auditLogs       AuditLog[]
+  memberships     Member[]
+  sentInvitations Invitation[]    @relation("SentInvitations")
 
   @@index([email])
   @@index([role])
   @@index([deletedAt])
+}
+
+model Workspace {
+  id        String   @id @default(cuid())
+  name      String
+  slug      String   @unique
+  image     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  members       Member[]
+  sentInvitations Invitation[] @relation("WorkspaceInvitations")
+
+  @@index([slug])
+}
+
+model Member {
+  id          String     @id @default(cuid())
+  role        MemberRole @default(MEMBER)
+  joinedAt    DateTime   @default(now())
+
+  userId      String
+  workspaceId String
+
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  workspace Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, workspaceId])
+  @@index([userId])
+  @@index([workspaceId])
+}
+
+model Invitation {
+  id            String           @id @default(cuid())
+  email         String
+  role          MemberRole       @default(MEMBER)
+  status        InvitationStatus @default(PENDING)
+  token         String           @unique
+  expiresAt     DateTime
+  acceptedAt    DateTime?
+  createdAt     DateTime         @default(now())
+  updatedAt     DateTime         @updatedAt
+
+  invitedById   String
+  workspaceId   String
+
+  invitedBy User      @relation("SentInvitations", fields: [invitedById], references: [id])
+  workspace Workspace @relation("WorkspaceInvitations", fields: [workspaceId], references: [id])
+
+  @@index([email])
+  @@index([token])
+  @@index([workspaceId])
+  @@index([status])
 }
 
 model Account {
