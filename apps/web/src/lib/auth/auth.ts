@@ -3,9 +3,8 @@ import type { DefaultSession } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import GitHub from "next-auth/providers/github";
 import Google from "next-auth/providers/google";
-import { DrizzleAdapter } from "@auth/drizzle-adapter";
-import { getDb } from "@/lib/db";
-import { accounts, sessions, users, verificationTokens } from "@/lib/db/schema";
+import { PrismaAdapter } from "@auth/prisma-adapter";
+import { prisma } from "@/lib/db";
 import { verifyPassword } from "./password";
 import { loginSchema } from "./validation";
 
@@ -24,19 +23,10 @@ declare module "next-auth" {
   }
 }
 
-const _db = process.env.DATABASE_URL ? getDb() : null;
-
 export const { auth, handlers, signIn, signOut } = NextAuth({
-  adapter: _db
-    ? DrizzleAdapter(_db, {
-        usersTable: users,
-        accountsTable: accounts,
-        sessionsTable: sessions,
-        verificationTokensTable: verificationTokens,
-      })
-    : undefined,
+  adapter: PrismaAdapter(prisma),
   session: {
-    strategy: _db ? "database" : "jwt",
+    strategy: "database",
     maxAge: 30 * 24 * 60 * 60,
     updateAge: 24 * 60 * 60,
   },
@@ -60,12 +50,11 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
 
         const { email, password } = parsed.data;
 
-        const db = getDb();
-        const user = await db.query.users.findFirst({
-          where: (users, { eq }) => eq(users.email, email.toLowerCase()),
+        const user = await prisma.user.findUnique({
+          where: { email: email.toLowerCase() },
         });
 
-        if (!user || !user.password) {
+        if (!user || !user.password || user.deletedAt) {
           return null;
         }
 
