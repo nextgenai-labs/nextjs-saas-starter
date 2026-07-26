@@ -13,6 +13,8 @@ const envSchema = z.object({
   NEXT_PUBLIC_APP_URL: z.string().url().default("http://localhost:3000"),
   LOG_LEVEL: z.enum(["debug", "info", "warn", "error"]).optional().default("info"),
   NODE_ENV: z.enum(["development", "production", "test"]).default("development"),
+  REDIS_URL: z.string().optional(),
+  DATABASE_URL_READ_REPLICA: z.string().optional(),
 });
 
 type Env = z.infer<typeof envSchema>;
@@ -38,6 +40,14 @@ export function getEnv(): Env {
   }
 
   return _env;
+}
+
+export function requireEnv(key: keyof Env): string {
+  const val = process.env[key];
+  if (!val) {
+    throw new Error(`Required environment variable ${key} is not set`);
+  }
+  return val;
 }
 
 export { envSchema };
