@@ -1,6 +1,6 @@
 # Next.js SaaS Starter
 
-**Auth · Teams · Billing · Admin — Production-ready, full source code included.**
+**Auth · Teams · Admin — Production-ready, full source code included.**
 
 Build and launch your subscription SaaS in days, not months. This starter kit eliminates the undifferentiated heavy lifting so you can focus on what makes your product unique.
 
@@ -52,10 +52,10 @@ nextjs-saas-starter/
 | Database        | PostgreSQL                 |
 | ORM             | Drizzle ORM                |
 | Auth            | NextAuth v5 (Auth.js)      |
-| Payments        | Stripe                     |
-| Email           | Resend                     |
+| Payments        | Stripe (planned)           |
+| Email           | Resend (planned)           |
 | UI              | Tailwind CSS 4 + shadcn/ui |
-| Testing         | Vitest + Playwright        |
+| Testing         | Vitest + Playwright (planned) |
 | Package manager | pnpm 9                     |
 | Build system    | Turborepo 2                |
 
